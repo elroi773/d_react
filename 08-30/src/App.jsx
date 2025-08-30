@@ -7,7 +7,14 @@
 //2. todos + search + statusFilter 조합해서 보이는 목록 계산 
 //3. 추가 폼으로 새 할일을 부모 콜백 호출로 등록 
 
+import { useState,useMemo } from "react"
+
 function App() {
+
+  const[todos, setTodos] = useState([
+    {id:1, title:"리액트 설치하기", done:false},
+    {id:2, title:"컴포넌트 구조 복습", done:true}
+  ]);
 
   return (
     <>
