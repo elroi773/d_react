@@ -16,6 +16,15 @@ function App() {
     {id:2, title:"컴포넌트 구조 복습", done:true}
   ]);
 
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all")
+
+  const visibleTodos = useMemo(()=>{
+    const keyword = search.trim().toLowerCase()
+    return todos.filter((t)=>{
+      const matchKeyword = keyword === "" || t.title.toLowerCase().includes(keyword)
+    })
+  },[todos, search,statusFilter])
   return (
     <>
       
