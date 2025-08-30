@@ -58,7 +58,17 @@ function App() {
             <option value="done">완료</option>
           </select>
         </div>
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          addTodo(newTitle)
+          }}
+        >
+          <label htmlFor="newTodo">새할일</label>
+          <input id = "newTodo" placeholder="할 일을 입력하세요" value={newTitle} onChange={(e)=>setNewTitle(e.target.value)} />
+          <button type="submit" disabled={newTitle.trim().length < 1}>추가</button>
+        </form>
       </div>
+    
     </>
   );
 }
